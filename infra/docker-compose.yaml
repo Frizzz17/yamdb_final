@@ -12,7 +12,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: https://hub.docker.com/repository/docker/frizzz17/api_yamdb_final/general/
+    build: frizzz17/api_yamdb_final:latest
     restart: always
     volumes:
 
