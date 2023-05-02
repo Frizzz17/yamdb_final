@@ -1,26 +1,25 @@
-from django.shortcuts import get_object_or_404
-from django.contrib.auth import get_user_model
-from rest_framework import viewsets, filters, status
-from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import AllowAny, IsAuthenticated, SAFE_METHODS
-from rest_framework.response import Response
-from rest_framework.decorators import action
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework_simplejwt.views import TokenObtainSlidingView
-from django.contrib.auth.tokens import default_token_generator
-from django.core.mail import send_mail
-from rest_framework.views import APIView
-
+from api.filterset import TitleFilter
+from api.mixins import BaseMixinViewClass
 from api.permission import (AuthorModeratorAdminOrReadOnly, IsAdmin,
                             IsAdminOrReadOnly)
-from api.serializers import (CommentSerializer, ReviewSerializer,
-                             CategorySerializer, GenreSerializer,
-                             TitleSerializer, TitleGetSerializer,
-                             UserSerializer, TokenObtainSerializer,
-                             UserRegistrationSerializer)
-from reviews.models import Review, Title, Category, Genre
-from api.mixins import BaseMixinViewClass
-from api.filterset import TitleFilter
+from api.serializers import (CategorySerializer, CommentSerializer,
+                             GenreSerializer, ReviewSerializer,
+                             TitleGetSerializer, TitleSerializer,
+                             TokenObtainSerializer, UserRegistrationSerializer,
+                             UserSerializer)
+from django.contrib.auth import get_user_model
+from django.contrib.auth.tokens import default_token_generator
+from django.core.mail import send_mail
+from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters, status, viewsets
+from rest_framework.decorators import action
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework_simplejwt.views import TokenObtainSlidingView
+from reviews.models import Category, Genre, Review, Title
 
 User = get_user_model()
 
@@ -55,6 +54,7 @@ class UserViewSet(viewsets.ModelViewSet):
                 serializer.errors,
                 status=status.HTTP_400_BAD_REQUEST
             )
+        return None
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -120,7 +120,7 @@ class TitleViewSet(viewsets.ModelViewSet):
     filterset_class = TitleFilter
 
     def get_serializer_class(self):
-        if self.request.method in SAFE_METHODS:
+        if self.request.method in ('GET', 'HEAD', 'OPTIONS'):
             return TitleGetSerializer
         return TitleSerializer
 

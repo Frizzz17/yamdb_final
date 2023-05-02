@@ -1,15 +1,13 @@
+from api.utils import ReviewDefault, TitleDefault
+from django.contrib.auth import get_user_model
+from django.contrib.auth.models import update_last_login
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth.validators import UnicodeUsernameValidator
+from django.db.models import Avg
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
-from django.db.models import Avg
-from django.contrib.auth import get_user_model
-from django.contrib.auth.validators import UnicodeUsernameValidator
-from django.contrib.auth.tokens import default_token_generator
-from django.contrib.auth.models import update_last_login
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-
-
-from reviews.models import Comment, Review, Title, Genre, Category
-from api.utils import TitleDefault, ReviewDefault
+from reviews.models import Category, Comment, Genre, Review, Title
 
 User = get_user_model()
 
@@ -114,11 +112,10 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """Создает и возвращает пользователя"""
-        user = User.objects.create_user(
+        return User.objects.create_user(
             email=validated_data["email"],
             username=validated_data["username"],
         )
-        return user
 
 
 class TokenObtainSerializer(TokenObtainPairSerializer):
