@@ -42,7 +42,7 @@ jobs:
           uses: docker/build-push-action@v2
           with:
             push: true
-            tags: Frizzz17/api_yamdb_final:latest
+            tags: Frizzz17/api_yamdb_final:latest 
 
   deploy:
       runs-on: ubuntu-latest
