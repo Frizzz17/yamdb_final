@@ -43,7 +43,7 @@ jobs:
           with:
             context: ./api_yamdb/
             push: true
-            tags: frizzz17/api_yamdb_final:v1
+            tags: frizzz17/api_yamdb_final:latest
 
   deploy:
       runs-on: ubuntu-latest
