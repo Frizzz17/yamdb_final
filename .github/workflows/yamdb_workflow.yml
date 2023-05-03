@@ -52,9 +52,9 @@ jobs:
         - name: executing remote ssh commands to deploy
           uses: appleboy/ssh-action@master
           with:
-            host: 158.160.65.222
-            username: frizzz1
-            key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKDGC0ZbvbjGg8W56XjTnJCZJbvllyT56Lr8UbUA/YY1tAoP8yVIGdzsf1fT7t9IY/dTUmwcgdr9a5oAAG+3cCIv2b1Q2Tq0FmSmDRNm9SACa1Nkwag/TXFWfbTmEZCGkLrCLXfs81AmoxwkON42S6V0wXb5Gbbqk84wsuiPJ7SvtYygRLxsyNQmqNBGxmGThW5ZZLvvxFdu5XhSUX3rSF0AzGNW1uBFp8r7/gJpM8FIBMhDhomf+ANhlSQ8BzUyVIWxw4gZNTbUgvEXTmsFniR+XYltU/W1+HD63JmjviOlXeWyi2a27JMpunNvdmCTPocCEZtvD3h03TeHjNiujI2fUeeeOqlB+GMdKiGUpd45T4qNYGGTU713Y+4lKdgZMnVirbKtOiM1Q5vOkrkupI0JIdFePVwi20nftMngMRNB5dfhG725gnGz4kmTYcd/WNEH/X31gYsaWHyT7Obmh9zsdTlFcWJxQKS3pPrjEuWJyxHgAYluFudD6gHd7BrDM= andrey@andrey-Lenovo-ideapad-330S-14IKB
+            host: ${{ secrets.HOST }}
+            username: frizzz17  
+            key: ${{ secrets.SSH_KEY }}
             passphrase: ${{ secrets.PASSPHRASE }}
             script: |
               sudo docker-compose stop
@@ -67,7 +67,7 @@ jobs:
               echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
               echo DB_HOST=${{ secrets.DB_HOST }} >> .env
               echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-              sudo docker-compose up -d --build
+              sudo docker-compose up -d --build 
 
   send_message:
     runs-on: ubuntu-latest
