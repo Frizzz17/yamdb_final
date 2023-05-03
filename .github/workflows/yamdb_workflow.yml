@@ -52,7 +52,7 @@ jobs:
         - name: executing remote ssh commands to deploy
           uses: appleboy/ssh-action@master
           with:
-            host: ${{ secrets.HOST }}
+            host: 158.160.65.222
             username: frizzz17  
             key: ${{ secrets.SSH_KEY }}
             passphrase: ${{ secrets.PASSPHRASE }}
