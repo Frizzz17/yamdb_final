@@ -112,4 +112,4 @@ yamdb_final
 ### Ссылка на проект
 http://158.160.65.222/
 
-example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push
+https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push
