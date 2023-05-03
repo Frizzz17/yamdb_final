@@ -112,4 +112,4 @@ yamdb_final
 ### Ссылка на проект
 http://158.160.65.222/
 
-https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push
+[https://github.com/Frizzz17/yamdb_final/actions/runs/4869494802/jobs/8684088480]https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push
