@@ -496,7 +496,7 @@ paths:
                       $ref: '#/components/schemas/Review'
         404:
           description: Произведение не найдено
-    post:
+    post: 
       tags:
         - REVIEWS
       operationId: Добавление нового отзыва
