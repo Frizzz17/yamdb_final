@@ -6,9 +6,7 @@ yamdb_final
 
 ### Как пользоваться:
 - Клонируйте проект из репозитрия в свою рабочую директорию командой ```git clone <адрес репозитория>```.
-- Разверните виртуальное окружение командой ```py -3.7 -m venv venv```.
-- Установите зависимости из requirements.txt ```pip install -r requirements.txt```
-- Перейдите в директорию проекта и запустите сервер ```python manage.py runserver```
+- Разверните проект на локальной машине командой ```docker-compose up```.
 
 ### Примеры:
 **GET** ```/api/v1/posts/``` - получить все публикации.
@@ -112,4 +110,5 @@ yamdb_final
 ### Ссылка на проект
 http://158.160.65.222/
 
-https://github.com/Frizzz17/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg
+[![yamdb_final](https://github.com/frizzz17/yamdb_final/workflows/yamdb_workflow.yml/badge.svg)](https://github.com/frizzz17/yamdb_final/actions)
+
