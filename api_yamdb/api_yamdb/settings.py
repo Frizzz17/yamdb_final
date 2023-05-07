@@ -9,7 +9,11 @@ SECRET_KEY = "kf_(s9f^@9a2t6z_u%8f&vaia&n61h+@d-_alq@_0slp*)9fqs"
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '51.250.16.120'
+]
 
 AUTH_USER_MODEL = 'users.User'
 

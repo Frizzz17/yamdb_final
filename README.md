@@ -10,6 +10,20 @@ yamdb_final
 - Клонируйте проект из репозитрия в свою рабочую директорию командой ```git clone <адрес репозитория>```.
 - Разверните проект на локальной машине командой ```docker-compose up```.
 
+Создайте файл .env в директории backend и заполните его данными по этому 
+образцу:
+
+```
+SECRET_KEY='django-insecure-nsxoy+s&z^f(2$vot&-m!3+uacrm1jikv6!mb+ut&*thlrn=m7'
+DB_ENGINE=django.db.backends.postgresql
+POSTGRES_DB=postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+DB_HOST=db
+DB_PORT=5432
+DEBUG=False
+```
+
 ### Примеры:
 **GET** ```/api/v1/posts/``` - получить все публикации.
 - **Reponse 200**  - удачное выполнение запроса баз пагинации
